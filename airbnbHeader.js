@@ -6,6 +6,7 @@ import {
   Text,
   StatusBar,
   FlatList,
+  Platform,
 } from "react-native";
 import Animated from "react-native-reanimated";
 import { withTransition } from "react-native-redash";
@@ -14,7 +15,7 @@ const { width, height } = Dimensions.get("window");
 const FlatListAnim = Animated.createAnimatedComponent(FlatList);
 
 const heightStatus = StatusBar.currentHeight;
-const HEIGHT_HEADER = 70 + heightStatus;
+const HEIGHT_HEADER = Platform.OS === "ios" ? 115 : 70 + heightStatus;
 
 const index = () => {
   const data = [{ color: "red" }, { color: "yellow" }, { color: "blue" }];
